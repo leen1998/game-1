@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.1">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;The Case of the Misleading Metrics&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&amp;family=Inter:wght@400;500;700&amp;display=swap');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--primary-color: #2c3e50;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--secondary-color: #f39c12;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--accent-color: #e74c3c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--background-color: #ecf0f1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--card-background: #34495e;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--text-color: #ecf0f1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--background-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--primary-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.12"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 18v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM12 34v-4h-2v4H6v2h4v4h2v-4h4v-2h-4zm0 18v-4h-2v4H6v2h4v4h2v-4h4v-2h-4zM24 0v4h2v-4h4v-2h-4V0h-2zM0 0v4h2v-4h4v-2H2V0H0zm48 0v4h2v-4h4v-2h-4V0h-2zM24 12v4h2v-4h4v-2h-4v-4h-2v4H24zM0 12v4h2v-4h4v-2H2v-4H0v4zm48 12v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm-48 0v-4h-2v4H6v2h4v4h2v-4h4v-2h-4zm0-12v4h2v-4h4v-2H2v-4H0v4zm24 12v4h2v-4h4v-2h-4v-4h-2v4H24zM0 36v4h2v-4h4v-2H2v-4H0v4zm48 12v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm24 0v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm24-24v4h2v-4h4v-2h-4V0h-2zm0 36v4h2v-4h4v-2h-4v-4h-2v4zM12 0v4h2v-4h4v-2h-4V0h-2zm-12 0v4h2v-4h4v-2H2V0H0zm24 12v4h2v-4h4v-2h-4v-4h-2v4H24zM0 12v4h2v-4h4v-2H2v-4H0v4z"%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>h1,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h2,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h3 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Merriweather', serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--card-background);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--secondary-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--primary-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.75rem 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 8px rgba(243, 156, 18, 0.4);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.drag-item {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: grab;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.drag-item:active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: grabbing;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.drop-zone {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px dashed #95a5a6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: border-color 0.2s, background-color 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.drop-zone.drag-over {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: var(--secondary-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: rgba(243, 156, 18, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.fade-in {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeIn 0.5s ease-in-out;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeIn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>opacity: 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>transform: translateY(10px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>to {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>opacity: 1;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>transform: translateY(0);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Modal styling */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: rgba(0, 0, 0, 0.7);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 100;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--card-background);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.list-item-title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--secondary-color);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body class="min-h-screen flex flex-col items-center justify-center p-4 text-center"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Modal for Alerts --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="modal" class="modal fixed inset-0 flex items-center justify-center hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-content card max-w-sm w-full p-6 text-center shadow-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 id="modal-title" class="text-xl font-bold mb-4"&gt;&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="modal-message" class="mb-6"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="modal-close-btn" class="btn text-sm"&gt;Close&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Main Game Container --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="w-full max-w-4xl card p-8 fade-in"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 class="text-4xl font-bold mb-4 text-secondary-color"&gt;The Case of the Misleading Metrics&lt;/h1&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="user-info" class="text-sm font-mono mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="user-id" class="text-gray-400"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Sherlock Holmes Dialogue Area --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="sherlock-dialogue" class="card mb-8 text-left bg-gray-800 p-6 rounded-lg shadow-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="dialogue-text" class="text-lg leading-relaxed text-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Welcome, Detective. Your mission is to investigate two CE cases. Your task: determine which case</p>
+<p class="p1"><span class="Apple-converted-space">                </span>demonstrates effective, ACCME-compliant storytelling, and which fails. Be cautious — appearances can</p>
+<p class="p1"><span class="Apple-converted-space">                </span>deceive.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Game Stages --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="game-stage-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Stage 1: Name Entry --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="stage-1" class="stage"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-xl mb-4 text-secondary-color"&gt;Enter your name, Detective.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-col items-center gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="text" id="detective-name" placeholder="Your Name"</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>class="p-2 w-full max-w-sm rounded-md bg-gray-700 text-white placeholder-gray-400"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button id="start-btn" class="btn"&gt;Begin Investigation&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Stage 2: Directions --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="stage-2" class="stage hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-left leading-relaxed space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-xl text-secondary-color"&gt;The Game is afoot!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Compare two CE storytelling cases — one effective, one poor.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;&lt;strong&gt;Tools Available:&lt;/strong&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc list-inside space-y-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Case Files&lt;/strong&gt; (narrative evidence with numbers).&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Dashboards&lt;/strong&gt; (outcomes data, charts).&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;NPC Interrogations&lt;/strong&gt; (program managers, clinicians, analysts).&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Deduction Board&lt;/strong&gt; (organize findings into Insight → Action → Outcome → Next Step).&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;&lt;strong&gt;Final Task:&lt;/strong&gt; Analyze both cases and present deductions about what worked, what failed, and how storytelling can transform CE data into actionable insights for evidence-based decision-making.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="continue-to-cases-btn" class="btn mt-8"&gt;Examine Case Files&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Stage 3: Case Files --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="stage-3" class="stage hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid md:grid-cols-2 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Case 1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="case-file card text-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-2xl font-bold mb-4 text-secondary-color"&gt;Case 1: The Brilliant Story&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ul class="text-sm space-y-2 text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;span class="list-item-title"&gt;The Challenge:&lt;/span&gt; Oncologists lacked confidence in NSCLC second-line therapy. Only 42% reported readiness. Chart audits confirmed the gap: 54% of prescriptions followed guidelines.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;span class="list-item-title"&gt;The Who:&lt;/span&gt; Learners: Oncologists in academic and community practices. Stakeholders: Independent CE planners, NCCN experts, multidisciplinary faculty.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;span class="list-item-title"&gt;The Action:&lt;/span&gt; A bias-free CE program was built: Case-based modules with patient vignettes, faculty-led guideline discussions, reflective polling with feedback. All disclosures resolved under high-quality educational standards.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;span class="list-item-title"&gt;The Results:&lt;/span&gt; Competence: Post-test scores improved 32%. Confidence: 74% reported being better prepared. Performance: 6-month EHR audit showed 22% more guideline-concordant prescribing. Healthcare Impact: Greater alignment with quality metrics.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;span class="list-item-title"&gt;The Next Step:&lt;/span&gt; Expand to community oncology sites. Add patient-reported outcomes. Continue bridging confidence to care.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Case 2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="case-file card text-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-2xl font-bold mb-4 text-accent-color"&gt;Case 2: The Broken Story&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ul class="text-sm space-y-2 text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;span class="list-item-title"&gt;The Challenge:&lt;/span&gt; A symposium promised updates on NSCLC treatment, chosen because “the topic is hot.” No needs assessment. No data.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;span class="list-item-title"&gt;The Who:&lt;/span&gt; Learners: General oncology audience at a national conference. Stakeholders: Event organizers + single pharmaceutical sponsor (who picked the faculty).&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;span class="list-item-title"&gt;The Action:&lt;/span&gt; Sponsor-led design: One-hour didactic lecture, company-affiliated speaker, focused mainly on a single drug, no interactivity. Sponsor controlled content → violating high-quality educational standards.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;span class="list-item-title"&gt;The Results:&lt;/span&gt; Satisfaction: 92% rated the speaker highly. Gaps: No pre/post test. No competence or performance outcomes. Claim: Organizers assumed prescribing improved, with no evidence.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;span class="list-item-title"&gt;The Next Step:&lt;/span&gt; Repeat the same lecture next year. Same sponsor. Same content. Same failures.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="continue-to-deduction-btn" class="btn mt-8"&gt;Proceed to Deduction Board&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Stage 4: Deduction Board --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="stage-4" class="stage hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg mb-4 text-secondary-color"&gt;The Deduction Board&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-sm mb-6 text-gray-300"&gt;Drag each piece of evidence to its correct framework category.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Evidence and Deduction Board --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-col md:flex-row gap-8 items-center md:items-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Evidence Pool --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="evidence-pool" class="w-full md:w-1/2 p-4 card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl mb-4 font-bold"&gt;Evidence to Examine&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;!-- Draggable Evidence Items --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="space-y-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="evidence-1" class="drag-item p-3 bg-gray-700 rounded-lg shadow-md"</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>draggable="true" data-group="case1" data-framework="Insight"&gt;Oncologists lacked confidence (42% readiness)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="evidence-2" class="drag-item p-3 bg-gray-700 rounded-lg shadow-md"</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>draggable="true" data-group="case1" data-framework="Insight"&gt;Chart audits confirm prescription gap (54% follow guidelines)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="evidence-3" class="drag-item p-3 bg-gray-700 rounded-lg shadow-md"</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>draggable="true" data-group="case1" data-framework="Action"&gt;Bias-free CE program with case-based modules&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="evidence-4" class="drag-item p-3 bg-gray-700 rounded-lg shadow-md"</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>draggable="true" data-group="case1" data-framework="Action"&gt;Faculty-led guideline discussions &amp; polling&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="evidence-5" class="drag-item p-3 bg-gray-700 rounded-lg shadow-md"</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>draggable="true" data-group="case1" data-framework="Outcome"&gt;Post-test scores improved by 32%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="evidence-6" class="drag-item p-3 bg-gray-700 rounded-lg shadow-md"</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>draggable="true" data-group="case1" data-framework="Outcome"&gt;EHR audit shows 22% more guideline-concordant prescribing&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="evidence-7" class="drag-item p-3 bg-gray-700 rounded-lg shadow-md"</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>draggable="true" data-group="case1" data-framework="Next Step"&gt;Decision to expand to new sites&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="evidence-8" class="drag-item p-3 bg-gray-700 rounded-lg shadow-md"</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>draggable="true" data-group="case2" data-framework="Weak"&gt;Symposium chosen because "topic is hot"&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="evidence-9" class="drag-item p-3 bg-gray-700 rounded-lg shadow-md"</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>draggable="true" data-group="case2" data-framework="Weak"&gt;92% rated the speaker highly (satisfaction score)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="evidence-10" class="drag-item p-3 bg-gray-700 rounded-lg shadow-md"</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>draggable="true" data-group="case2" data-framework="Weak"&gt;Sponsor-controlled content &amp; faculty&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="evidence-11" class="drag-item p-3 bg-gray-700 rounded-lg shadow-md"</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>draggable="true" data-group="case2" data-framework="Weak"&gt;Organizers assumed prescribing improved&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Framework Drop Zones --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="deduction-board" class="w-full md:w-1/2 p-4 card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl mb-4 font-bold"&gt;The Framework&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="drop-Insight" class="drop-zone p-4 bg-gray-700 rounded-lg shadow-inner min-h-[100px]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-sm font-bold text-secondary-color"&gt;Insight&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="drop-Action" class="drop-zone p-4 bg-gray-700 rounded-lg shadow-inner min-h-[100px]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-sm font-bold text-secondary-color"&gt;Action&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="drop-Outcome" class="drop-zone p-4 bg-gray-700 rounded-lg shadow-inner min-h-[100px]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-sm font-bold text-secondary-color"&gt;Outcome&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="drop-Next Step" class="drop-zone p-4 bg-gray-700 rounded-lg shadow-inner min-h-[100px]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-sm font-bold text-secondary-color"&gt;Next Step&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="drop-Weak" class="drop-zone p-4 bg-gray-700 rounded-lg shadow-inner col-span-2 min-h-[100px]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-sm font-bold text-accent-color"&gt;Weak/Misleading Evidence&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="hints-area" class="mt-4 p-4 card text-sm text-left hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p id="hint-text" class="text-red-400"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Stage 5: Debrief --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="stage-5" class="stage hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p id="debrief-text" class="text-lg leading-relaxed text-left mb-6"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="card p-6 rounded-lg bg-gray-800 shadow-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-2 text-secondary-color"&gt;Your Final Analysis&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-sm text-left text-gray-300 space-y-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;&lt;strong&gt;What made the good case compelling?&lt;/strong&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;&lt;strong&gt;What caused the poor case to fail?&lt;/strong&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;&lt;strong&gt;How can Insight → Action → Outcome → Next Step transform CE storytelling?&lt;/strong&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="show-scoreboard-btn" class="btn mt-8"&gt;See Your Detective Score&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Stage 6: Scoreboard --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="stage-6" class="stage hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p id="scoreboard-intro" class="text-xl italic mb-6"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-full max-w-lg mx-auto card p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4 text-secondary-color"&gt;Detective Scoreboard&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="scoreboard-list" class="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;!-- Scoreboard list will be populated here by JS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between p-3 rounded-md bg-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="font-bold"&gt;1. 🏆 Detective [Name]&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-sm"&gt;Score: 100&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between p-3 rounded-md bg-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="font-bold"&gt;2. 🥈 Detective [Name]&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-sm"&gt;Score: 90&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between p-3 rounded-md bg-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="font-bold"&gt;3. 🥉 Detective [Name]&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-sm"&gt;Score: 80&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mt-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-4 text-secondary-color"&gt;Key Takeaways&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="text-sm text-left space-y-2 text-gray-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Numbers must be interpreted critically, not accepted at face value.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Case 1&lt;/strong&gt; demonstrates a rigorous, ethical storytelling approach.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Case 2&lt;/strong&gt; highlights the risks of poor storytelling and bias.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Collaboration, critical reasoning, and ethical alignment elevate CE practice.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="module"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { getFirestore, doc, setDoc, onSnapshot, collection, query } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Firebase Setup</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let app;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let db;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let auth;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let userId;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const main = document.querySelector('main');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const modal = document.getElementById('modal');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const modalTitle = document.getElementById('modal-title');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const modalMessage = document.getElementById('modal-message');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const modalCloseBtn = document.getElementById('modal-close-btn');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Custom alert function</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showModal(title, message) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modalTitle.textContent = title;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modalMessage.textContent = message;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modal.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>modalCloseBtn.onclick = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modal.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Game State Variables</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let detectiveName = "My Dear Watson";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let score = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let hintsUsed = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let hintsForCurrentItem = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const totalEvidence = 11;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let evidenceCorrectlyPlaced = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const evidenceMap = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'evidence-1': { framework: 'Insight', hints: ["Oncologists lacked confidence (42% readiness) is a measure of a gap, which is key to a problem's 'Insight'."] },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'evidence-2': { framework: 'Insight', hints: ["Chart audits confirm prescription gap (54% follow guidelines) is data that provides 'Insight' into a problem that needs to be solved."] },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'evidence-3': { framework: 'Action', hints: ["A bias-free CE program with case-based modules is a deliberate 'Action' taken to address the insights."] },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'evidence-4': { framework: 'Action', hints: ["Faculty-led guideline discussions &amp; polling are part of the 'Action' or the design of the learning intervention."] },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'evidence-5': { framework: 'Outcome', hints: ["Post-test scores improved by 32% is a direct 'Outcome' of the learning experience."] },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'evidence-6': { framework: 'Outcome', hints: ["EHR audit shows 22% more guideline-concordant prescribing is a measurable 'Outcome' and a true indicator of success."] },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'evidence-7': { framework: 'Next Step', hints: ["Decision to expand to new sites is the logical 'Next Step' after successful outcomes."] },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'evidence-8': { framework: 'Weak', hints: ["A symposium chosen because 'topic is hot' is not an evidence-based decision, making it a 'Weak' argument."] },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'evidence-9': { framework: 'Weak', hints: ["'Applause is not proof, Watson — does a rating measure competence?' This satisfaction score is a 'Weak' metric for measuring true learning or impact."] },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'evidence-10': { framework: 'Weak', hints: ["Sponsor-controlled content &amp; faculty violates standards, making the evidence 'Weak' due to bias."] },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'evidence-11': { framework: 'Weak', hints: ["Organizers assumed prescribing improved is not supported by data, making it a 'Weak' claim."] }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// UI Elements</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const dialogueText = document.getElementById('dialogue-text');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const detectiveNameInput = document.getElementById('detective-name');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const startBtn = document.getElementById('start-btn');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const stages = document.querySelectorAll('.stage');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const continueToCasesBtn = document.getElementById('continue-to-cases-btn');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const continueToDeductionBtn = document.getElementById('continue-to-deduction-btn');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const deductionBoard = document.getElementById('deduction-board');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const evidencePool = document.getElementById('evidence-pool');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const hintText = document.getElementById('hint-text');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const hintsArea = document.getElementById('hints-area');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const showScoreboardBtn = document.getElementById('show-scoreboard-btn');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const scoreboardIntro = document.getElementById('scoreboard-intro');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const scoreboardList = document.getElementById('scoreboard-list');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const userIdDisplay = document.getElementById('user-id');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Functions to control game flow</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showStage(stageId) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>stages.forEach(stage =&gt; stage.classList.add('hidden'));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(stageId).classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(stageId).classList.add('fade-in');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function updateDialogue(text) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dialogueText.textContent = text;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Event Listeners</p>
+<p class="p1"><span class="Apple-converted-space">        </span>startBtn.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const name = detectiveNameInput.value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (name) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>detectiveName = name;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>updateDialogue(`Welcome, Detective ${detectiveName}. Two cases await your investigation. Your task: compare them, uncover the truth behind their storytelling, and determine which aligns with high-quality educational standards — and which fails the test.`);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showStage('stage-2');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showModal('Attention!', 'Please enter your name to begin your investigation.');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>continueToCasesBtn.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>updateDialogue("Examine the case files carefully, Detective. The details contained within hold the key to our puzzle.");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showStage('stage-3');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>continueToDeductionBtn.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>updateDialogue("Now for the most crucial part: the deduction. Place each piece of evidence on the board where it truly belongs.");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showStage('stage-4');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>setupDragAndDrop();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Drag and Drop Logic</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function setupDragAndDrop() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const draggables = document.querySelectorAll('.drag-item');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const dropZones = document.querySelectorAll('.drop-zone');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>draggables.forEach(item =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>item.addEventListener('dragstart', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>e.dataTransfer.setData('text/plain', e.target.id);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>item.classList.add('opacity-50');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>hintsForCurrentItem = 0; // Reset hint count for new drag</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>hintsArea.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>item.addEventListener('dragend', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>item.classList.remove('opacity-50');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>dropZones.forEach(zone =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>zone.addEventListener('dragover', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>zone.classList.add('drag-over');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>zone.addEventListener('dragleave', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>zone.classList.remove('drag-over');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>zone.addEventListener('drop', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>zone.classList.remove('drag-over');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const droppedItemId = e.dataTransfer.getData('text/plain');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const droppedItem = document.getElementById(droppedItemId);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// Check if the drop is correct</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const correctZone = evidenceMap[droppedItemId].framework;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const droppedZone = zone.id.replace('drop-', '');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (droppedZone === correctZone) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>zone.appendChild(droppedItem);</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>droppedItem.setAttribute('draggable', 'false'); // Lock in place</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>droppedItem.classList.remove('drag-item', 'cursor-grab');</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>droppedItem.classList.add('bg-green-600', 'text-white');</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>evidenceCorrectlyPlaced++;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (evidenceCorrectlyPlaced === totalEvidence) {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>endGame();</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>// Incorrect placement</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>hintsUsed++;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>hintsForCurrentItem++;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>displayHint(droppedItemId);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function displayHint(itemId) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const hints = evidenceMap[itemId].hints;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (hintsForCurrentItem &gt; hints.length) {</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>// Final hint</p>
+<p class="p1"><span class="Apple-converted-space">                </span>hintsArea.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>hintText.innerHTML = `&lt;strong&gt;Holmes's Final Ruling:&lt;/strong&gt; ${hints[hints.length - 1]}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else if (hintsForCurrentItem &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>hintsArea.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>hintText.textContent = hints[hintsForCurrentItem - 1];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function endGame() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Calculate final score</p>
+<p class="p1"><span class="Apple-converted-space">            </span>score = Math.max(0, 100 - (hintsUsed * 5));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>updateDialogue("The investigation is complete. Case 1 demonstrated true storytelling — grounded in evidence, aligned with standards, and tied to healthcare improvement. Case 2, though dressed in applause, revealed no substance. Numbers mislead unless woven into a narrative of Insight → Action → Outcome → Next Step. And that, Watson, is the only story that counts.");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showStage('stage-5');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>saveScore(detectiveName, score, hintsUsed);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Firebase Firestore Functions</p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function saveScore(name, finalScore, hints) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!db || !userId) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Firestore not initialized or user not authenticated.");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const userDocRef = doc(db, `artifacts/${appId}/public/data/detective_scores`, userId);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>await setDoc(userDocRef, {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>name: name,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>score: finalScore,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>hintsUsed: hints,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>timestamp: new Date()</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.log("Score saved successfully!");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (e) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Error adding document: ", e);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function fetchScores() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!db) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Firestore not initialized.");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const scoreboardRef = collection(db, `artifacts/${appId}/public/data/detective_scores`);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const q = query(scoreboardRef);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>onSnapshot(q, (querySnapshot) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const scores = [];</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>querySnapshot.forEach((doc) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>const data = doc.data();</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (data.name &amp;&amp; data.score) {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>scores.push(data);</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// Sort scores descending and take top 3</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>scores.sort((a, b) =&gt; b.score - a.score);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>displayScoreboard(scores.slice(0, 3));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (e) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Error fetching scores: ", e);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function displayScoreboard(scores) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scoreboardList.innerHTML = ''; // Clear previous list</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scores.forEach((s, index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const rankText = index === 0 ? "🏆 Master of Insight" : index === 1 ? "🥈 Guardian of Evidence" : "🥉 Seeker of Truth";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const rankHtml = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center justify-between p-3 rounded-md bg-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="font-bold"&gt;${index + 1}. ${s.name} - ${rankText}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-sm"&gt;Score: ${s.score}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>scoreboardList.innerHTML += rankHtml;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>showScoreboardBtn.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>updateDialogue(`"And so, our investigation concludes. The fog of uncertainty has lifted, and clarity prevails. Here are today’s sharpest detectives:`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showStage('stage-6');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>fetchScores();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Firebase Initialization and Authentication</p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function initFirebase() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>app = initializeApp(firebaseConfig);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>db = getFirestore(app);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>auth = getAuth(app);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>onAuthStateChanged(auth, async (user) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (user) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>userId = user.uid;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>userIdDisplay.textContent = `User ID: ${userId}`;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>console.log("Authenticated as user:", userId);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>// Sign in anonymously if no user is authenticated</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>await signInAnonymously(auth);</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>console.log("Signed in anonymously.");</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>console.error("Error signing in anonymously:", error);</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (initialAuthToken) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>await signInWithCustomToken(auth, initialAuthToken);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>await signInAnonymously(auth);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Firebase initialization failed:", error);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>initFirebase();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showStage('stage-1');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
